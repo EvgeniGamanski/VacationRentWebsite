@@ -33,7 +33,19 @@ const RegisterPage = () => {
             type='password'
             required
           />
-          <input type='file' name='profileImage' accept='image/*' style={{ display: 'none'}} required />
+          <input 
+          id='image'
+          type='file' 
+          name='profileImage' 
+          accept='image/*' 
+          style={{ display: 'none'}} 
+          required 
+          />
+          <label htmlFor='image'>
+            <img src="/assests/addImage.png" alt="add profile photo" />
+             <p>Upload Your Photo</p>
+          </label>
+          <button type='submit'>REGISTER</button>
         </form>
         <a href='/login'>Already have an account? Log In Here</a>
       </div>
