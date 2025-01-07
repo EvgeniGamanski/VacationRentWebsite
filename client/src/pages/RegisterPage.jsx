@@ -1,4 +1,6 @@
 import React from 'react'
+import "../styles/Register.scss"
+
 
 const RegisterPage = () => {
   return (
@@ -42,7 +44,7 @@ const RegisterPage = () => {
           required 
           />
           <label htmlFor='image'>
-            <img src="/assests/addImage.png" alt="add profile photo" />
+            <img src="/assets/addImage.png" alt="add profile photo" />
              <p>Upload Your Photo</p>
           </label>
           <button type='submit'>REGISTER</button>
