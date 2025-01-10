@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/Register.scss"
 
 
 const RegisterPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    profileImage: null
+  })
   return (
     <div className='register'>
       <div className='register_content'>
         <form className='register_content_form'>
           <input
             placeholder='First Name'
-            name='firstname'
+            name='firstName'
+            value={formData.firstName}
             required
           />
            <input
             placeholder='Last Name'
-            name='lastname'
+            name='lastName'
+            value={formData.lastName}
             required
           />
            <input
