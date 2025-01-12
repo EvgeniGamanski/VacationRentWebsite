@@ -10,7 +10,19 @@ const RegisterPage = () => {
     password: "",
     confirmPassword: "",
     profileImage: null
-  })
+  });
+
+  const handleChange = (e) => {
+    const { name,value,files } = e.target;
+    setFormData({
+      ...formData,
+      [name]:value,
+      [name]:name === "profileImage" ? files[0] : value
+    })
+  }
+
+  console.log(formData); 
+
   return (
     <div className='register'>
       <div className='register_content'>
@@ -19,29 +31,37 @@ const RegisterPage = () => {
             placeholder='First Name'
             name='firstName'
             value={formData.firstName}
+            onChange={handleChange}
             required
           />
            <input
             placeholder='Last Name'
             name='lastName'
             value={formData.lastName}
+            onChange={handleChange}
             required
           />
            <input
             placeholder='Email'
             name='email'
             type='email'
+            value={formData.email}
+            onChange={handleChange}
             required
           />
            <input
             placeholder='Password'
             name='password'
+            value={formData.password}
+            onChange={handleChange}
             type='password'
             required
           />
             <input
             placeholder='Confirm Password'
             name='confirmPassword'
+            value={formData.confirmPassword}
+            onChange={handleChange}
             type='password'
             required
           />
@@ -51,6 +71,7 @@ const RegisterPage = () => {
           name='profileImage' 
           accept='image/*' 
           style={{ display: 'none'}} 
+          onChange={handleChange}
           required 
           />
           <label htmlFor='image'>
