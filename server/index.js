@@ -7,3 +7,7 @@ const cors = require("cors")
 app.use(cors())
 app.use(express.json())
 app.use(express.static('public'))
+
+/* MONGOOSE SETUP */
+const PORT = 3001
+mongoose.connect()
