@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const usersSchema = new mongoose.Schema(
+const UsersSchema = new mongoose.Schema(
     {
         firstName: {
             type: String,
@@ -38,6 +38,9 @@ const usersSchema = new mongoose.Schema(
         reservationList: {
             type: Array,
             default: [],
-        },
-    }
+        }
+    },
+    { timestamps: true }
 )
+
+const User = mongoose.model("User", UsersSchema)
