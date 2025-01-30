@@ -29,6 +29,19 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
         if(!profileImage){
             return res.status(400).send("No file uploaded")
         }
+
+        /* path to the uploaded profile photo */
+        const profileImagePath = profileImage.path
+
+        /* Check if user exists */
+        const existingUser = await User.findOne({ email })
+        if (existingUser){
+            return res.status(409).json({ message: "User already exists!" })
+        }
+
+        /* hass the password */
+        const salt = await bcrypt.genSalt()
+        const hashedPassword = await bcrypt.hash(password, salt)
     } catch (err) {
 
     }
