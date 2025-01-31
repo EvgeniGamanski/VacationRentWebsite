@@ -42,6 +42,18 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
         /* hass the password */
         const salt = await bcrypt.genSalt()
         const hashedPassword = await bcrypt.hash(password, salt)
+
+        /* Create a new User */
+        const newUser = new User ({
+            firstName,
+            lastName,
+            email,
+            password: hashedPassword,
+            profileImagePath,
+        });
+
+        /* Save the new User */
+        await newUser.save()
     } catch (err) {
 
     }
