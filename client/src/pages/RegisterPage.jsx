@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import "../styles/Register.scss"
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import "../styles/Register.scss";
 
 
 const RegisterPage = () => {
@@ -22,6 +23,39 @@ const RegisterPage = () => {
   }
 
   console.log(formData); 
+
+  const [passwordMatch, setPasswordMatch] = useState(true)
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if(formData.password === formData.confirmPassword){
+      setPasswordMatch(true)
+    } else {
+      setPasswordMatch(false)
+    }
+
+    try {
+      const register_form = new FormData()
+
+      for(var key in formData){
+        register_form.append(key, formData[key])
+      }
+
+      const response = await fetch("http://localhost:3001/auth/register", {
+        method: "POST",
+        body: register_form
+      })
+
+      if(response.ok){
+        navigate("/login")
+      }
+    } catch (err){
+      console.log("Registration failed!", err.message)
+    }
+  }
 
   return (
     <div className='register'>
