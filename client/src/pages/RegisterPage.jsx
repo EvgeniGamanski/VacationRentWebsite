@@ -60,7 +60,7 @@ const RegisterPage = () => {
   return (
     <div className='register'>
       <div className='register_content'>
-        <form className='register_content_form'>
+        <form className='register_content_form' onSubmit={handleSubmit}>
           <input
             placeholder='First Name'
             name='firstName'
@@ -99,6 +99,11 @@ const RegisterPage = () => {
             type='password'
             required
           />
+
+          {!passwordMatch && (
+            <p style={{ color: "red" }}>Passwords don't match!</p>
+          )}
+
           <input 
           id='image'
           type='file' 
@@ -119,7 +124,7 @@ const RegisterPage = () => {
             style={{ maxWidth: "80px" }}
             />
           )}
-          <button type='submit'>REGISTER</button>
+          <button type='submit' disabled={!passwordMatch}>REGISTER</button>
         </form>
         <a href='/login'>Already have an account? Log In Here</a>
       </div>
