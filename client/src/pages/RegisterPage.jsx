@@ -26,16 +26,14 @@ const RegisterPage = () => {
 
   const [passwordMatch, setPasswordMatch] = useState(true)
 
+  useEffect(() => {
+    setPasswordMatch(formData.password === formData.confirmPassword || formData.confirmPassword === "")
+  })
+
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    if(formData.password === formData.confirmPassword){
-      setPasswordMatch(true)
-    } else {
-      setPasswordMatch(false)
-    }
 
     try {
       const register_form = new FormData()
