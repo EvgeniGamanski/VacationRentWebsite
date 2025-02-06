@@ -13,7 +13,7 @@ app.use(express.static('public'))
 /* ROUTES */
 app.use("/auth", authRouters)
 
-/* MONGOOSE SETUP */
+/* MONGOOSE SETUP FOR PORT */
 const PORT = 3001;
 mongoose
     .connect(process.env.MONGO_URL, { 
