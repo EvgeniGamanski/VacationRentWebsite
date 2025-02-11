@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   return (
-    <div>LoginPage</div>
+    <div className='login'>
+      <div className='login_content'>
+        <form className='login_content_form'>
+          <input type="email" placeholder='Email' value={email} required />
+          <input type="password" placeholder='Password' value={password} required />
+          <button type='submit'>LOG IN</button>
+        </form>
+        <a href="/register">Don't Have An Account? Sign In Here.</a>
+      </div>
+    </div>
   )
 }
 
