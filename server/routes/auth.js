@@ -60,6 +60,23 @@ router.post("/register", upload.single('profileImage'), async (req, res) => {
         console.log(err)
         res.status(500).json({ message: "Registration failed!", error: err.message })
     }
-})
+});
 
+router.post("/login", async (req, res) => {
+    try {
+        /* take the information from the form */
+        const { email, password } = req.body
+
+        /* Check if user exists */
+        const user = await User.findOne({ email })
+        if (!user){
+            return res.status(409).json({ message: "User doesn't exist!" })
+        }
+
+        /* Compare the password with the hashed password */
+    }
+    catch (err){
+
+    }
+})
 module.exports = router
