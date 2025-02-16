@@ -74,6 +74,10 @@ router.post("/login", async (req, res) => {
         }
 
         /* Compare the password with the hashed password */
+        const isMatch = await bcrypt.compare(password, user.password)
+        if (!isMatch){
+            return res.status(400)
+        }
     }
     catch (err){
 
