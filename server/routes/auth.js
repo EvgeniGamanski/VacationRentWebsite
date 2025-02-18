@@ -76,11 +76,13 @@ router.post("/login", async (req, res) => {
         /* Compare the password with the hashed password */
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch){
-            return res.status(400)
+            return res.status(400).json({ message: "Invalid Credentials!" })
         }
+
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
     }
     catch (err){
 
     }
 })
-module.exports = router
+module.exports = router;
