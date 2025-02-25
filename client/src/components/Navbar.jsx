@@ -1,4 +1,6 @@
-import React from 'react';
+import { IconButton } from "@mui/material"
+import { Search } from "@mui/icons-material"
+import variables from "../styles/variables"
 
 export const Navbar = () => {
   return (
@@ -9,7 +11,12 @@ export const Navbar = () => {
 
         <div className='navbar_search'>
             <input type="text" placeholder='Search ...' />
+            <IconButton>
+              <Search sx={{ color: variables.pinkred }}/>
+            </IconButton>
         </div>
+
+        <div className="navbar_right"></div>
     </div>
   )
 }
