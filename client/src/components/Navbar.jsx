@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material"
 import { Search } from "@mui/icons-material"
-import variables from "../styles/variables"
+import variables from "../styles/variables.scss"
 
 export const Navbar = () => {
   return (
