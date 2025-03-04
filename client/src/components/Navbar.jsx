@@ -3,6 +3,9 @@ import { Search, Person, Menu } from "@mui/icons-material"
 import variables from "../styles/variables.scss"
 
 export const Navbar = () => {
+  const [dropDownMenu, setDropDownMenu] = useState(false)
+  const user = useSelector((state) => state.user)
+  
   return (
     <div className='navbar'>
       <a href='/'>
