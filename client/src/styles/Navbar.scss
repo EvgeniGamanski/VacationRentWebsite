@@ -47,12 +47,14 @@
 
     .host {
       text-decoration: none;
+      font-family: Calibri;
       color: $blue;
       font-weight: 700;
       cursor: pointer;
 
       &:hover {
-        color: $pinkred;
+        // color: $pinkred;
+        color: royalblue;
       }
 
       @include sm {

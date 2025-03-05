@@ -3,6 +3,7 @@ import { Search, Person, Menu } from "@mui/icons-material";
 import {useSelector} from "react-redux";
 import variables from "../styles/variables.scss";
 import React, { useState } from "react";
+import "../styles/Navbar.scss"
 
 export const Navbar = () => {
   const [dropDownMenu, setDropDownMenu] = useState(false)
@@ -23,9 +24,9 @@ export const Navbar = () => {
 
       <div className="navbar_right">
         {user ? (
-          <a href="/create-listing">Become A Host</a>
+          <a href="/create-listing" className="host">Become A Host</a>
         ) : (
-          <a href="/login">Become A Host</a>
+          <a href="/login" className="host">Become A Host</a>
         )}
 
         <button className="navbar_right_account">
