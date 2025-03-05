@@ -1,6 +1,8 @@
-import { IconButton } from "@mui/material"
-import { Search, Person, Menu } from "@mui/icons-material"
-import variables from "../styles/variables.scss"
+import { IconButton } from "@mui/material";
+import { Search, Person, Menu } from "@mui/icons-material";
+import {useSelector} from "react-redux";
+import variables from "../styles/variables.scss";
+import React, { useState } from "react";
 
 export const Navbar = () => {
   const [dropDownMenu, setDropDownMenu] = useState(false)
