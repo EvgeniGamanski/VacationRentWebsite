@@ -35,7 +35,7 @@ export const Navbar = () => {
           <a href="/login" className="host">Become A Host</a>
         )}
 
-        <button className="navbar_right_account" onClick={() => setDropDownMenu(true)}>
+        <button className="navbar_right_account" onClick={() => setDropDownMenu(!dropDownMenu)}>
           <Menu sx={{ color: variables.darkgrey }} />
           {!user ?
             <Person sx={{ color: variables.darkgrey }} />
