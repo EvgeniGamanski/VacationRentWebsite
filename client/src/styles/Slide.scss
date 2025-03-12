@@ -1,0 +1,16 @@
+.slide {
+    width: 100vw;
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("../../public/assets/slide.jpg");
+    background-position: center top;
+    background-size: cover;
+  
+    h1 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding: 150px 200px;
+      font-size: 55px;
+      text-align: center;
+      color: white;
+      text-shadow: black;
+    }
+  }

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import "../styles/Slide.scss";
 
 const Slide = () => {
   return (
-    <div className='slide'>
+    <div className="slide">
         <h1>Welcome Home! Anywhere you roam. <br/> Stay in the moment. Make your 
         memories.
         </h1>
@@ -10,4 +11,4 @@ const Slide = () => {
   );
 };
 
-export default Slide
+export default Slide;
