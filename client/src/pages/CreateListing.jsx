@@ -19,10 +19,16 @@ const CreateListing = () => {
             <div className='category-list'>
               {categories.map((item, index) => {
                 <div className='category' key={index}>
-                  <div className='category_icon'>{category.icon}</div>
+                  <div className='category_icon'>{item.icon}</div>
+                  <p>{item.label}</p>
                 </div>
               })}
-            </div> 
+            </div>
+
+            <h3>What type of place will guests have?</h3> 
+            <div className='type-list'>
+
+            </div>
           </div>
         </form>
       </div>
