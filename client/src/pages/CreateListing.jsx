@@ -26,7 +26,7 @@ const CreateListing = () => {
             </div>
 
             <h3>What type of place will guests have?</h3> 
-            <div className='type-list'>
+            <div className='type-list'> 
 
             </div>
           </div>
