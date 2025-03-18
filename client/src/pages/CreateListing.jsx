@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/CreateListing.scss" 
 import Navbar from '../components/Navbar'
-import { categories } from '../data'
+import { categories, types } from '../data'
 
 
 const CreateListing = () => {
@@ -27,7 +27,14 @@ const CreateListing = () => {
 
             <h3>What type of place will guests have?</h3> 
             <div className='type-list'> 
-
+              {types?.map((item, index) => (
+                <div className='type'>
+                  <div className='type_text'>
+                    <h4>{item.name}</h4>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </form>
