@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/CreateListing.scss" 
+import "../styles/CreateListing.scss"
 import Navbar from '../components/Navbar'
 import { categories, types } from '../data'
 
@@ -25,8 +25,8 @@ const CreateListing = () => {
               })}
             </div>
 
-            <h3>What type of place will guests have?</h3> 
-            <div className='type-list'> 
+            <h3>What type of place will guests have?</h3>
+            <div className='type-list'>
               {types?.map((item, index) => (
                 <div className='type'>
                   <div className='type_text'>
@@ -35,6 +35,38 @@ const CreateListing = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <h3>Where is your place located?</h3>
+            <div className='full'>
+              <div className='location'>
+                <p>Street Address</p>
+                <input type="text" placeholder='Street Address' name='streetAddress' required />
+              </div>
+            </div>
+
+            <div className='half'> 
+              <div className='location'>
+                <p>Apartment, Suite, etc. (if applicable)</p>
+                <input type='text' placeholder='Apt, Suite, etc. (if applicable)' name='aptSuite' required />
+              </div>
+
+              <div className='location'>
+                <p>City</p>
+                <input type='text' placeholder='City' name='city' required />
+              </div>
+            </div>
+
+            <div className='half'> 
+              <div className='location'>
+                <p>Province</p>
+                <input type='text' placeholder='Province' name='province' required />
+              </div>
+
+              <div className='location'>
+                <p>Country</p>
+                <input type='text' placeholder='Country' name='country' required />
+              </div>
             </div>
           </div>
         </form>
