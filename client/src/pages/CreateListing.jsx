@@ -1,8 +1,10 @@
-import React from 'react'
-import "../styles/CreateListing.scss"
-import Navbar from '../components/Navbar'
-import { categories, types } from '../data'
+import React from 'react';
+import "../styles/CreateListing.scss";
+import Navbar from '../components/Navbar';
+import { categories, types } from '../data';
+import variables from "../styles/variables.scss";
 
+import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 
 const CreateListing = () => {
   return (
@@ -33,6 +35,7 @@ const CreateListing = () => {
                     <h4>{item.name}</h4>
                     <p>{item.description}</p>
                   </div>
+                  <div className='type_icon'>{item.icon}</div>
                 </div>
               ))}
             </div>
@@ -66,6 +69,16 @@ const CreateListing = () => {
               <div className='location'>
                 <p>Country</p>
                 <input type='text' placeholder='Country' name='country' required />
+              </div>
+            </div>
+
+            <h3>Share some basics about your place</h3>
+            <div className='basics'>
+              <div className='basic'>
+                <p>Guests</p>
+                <div className='basic_count'>
+                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                </div>
               </div>
             </div>
           </div>
