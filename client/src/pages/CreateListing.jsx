@@ -78,6 +78,8 @@ const CreateListing = () => {
                 <p>Guests</p>
                 <div className='basic_count'>
                   <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <p>1</p>
+                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
             </div>
