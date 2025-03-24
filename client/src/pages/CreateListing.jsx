@@ -82,7 +82,42 @@ const CreateListing = () => {
                   <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
+
+              <div className='basic'>
+                <p>Bedrooms</p>
+                <div className='basic_count'>
+                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <p>1</p>
+                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                </div>
+              </div>
+
+              <div className='basic'>
+                <p>Beds</p>
+                <div className='basic_count'>
+                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <p>1</p>
+                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                </div>
+              </div>
+
+              <div className='basic'>
+                <p>Bathrooms</p>
+                <div className='basic_count'>
+                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <p>1</p>
+                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div className='create-listing_step2'>
+            <h2>Step 2: Make your place stand out</h2>
+            <hr />
+
+            <h3>Tell guests what your place has to offer</h3>
+
           </div>
         </form>
       </div>
