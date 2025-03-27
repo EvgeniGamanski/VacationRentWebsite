@@ -3,6 +3,7 @@ import "../styles/CreateListing.scss";
 import Navbar from '../components/Navbar';
 import { categories, facilities, types } from '../data';
 import variables from "../styles/variables.scss";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 
@@ -125,6 +126,9 @@ const CreateListing = () => {
                 </div>
               ))}
             </div>
+
+            <h3>Add some photos of your place</h3>
+
 
           </div>
         </form>
