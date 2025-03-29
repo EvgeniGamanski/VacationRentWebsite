@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/CreateListing.scss";
 import Navbar from '../components/Navbar';
 import { categories, facilities, types } from '../data';
@@ -8,6 +8,19 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 
 const CreateListing = () => {
+  const [photos, setPhotos] = useState([])
+
+  const handleUploadPhotos = (e) => {
+    const newPhotos = e.target.files
+    setPhotos((prevPhotos) => [...prevPhotos, ...newPhotos])
+  }
+
+  const handleDragPhoto = (result) => {
+    if(!result.destination) return
+    const items = Array.from(photos)
+    const [reorderedItem] = item.splice(result.source.index, 1
+    item.splice(result.destination.index, 0, reorderedItem)
+  }
   return (
     <>
       <Navbar />
@@ -128,7 +141,16 @@ const CreateListing = () => {
             </div>
 
             <h3>Add some photos of your place</h3>
+            <DragDropContext onDragEnd={}>
+              <Droppable droppableId='photos' direction='horizontal'>
+                {(provided) => (
+                  <div className='photos' {...provided.droppableProps} ref={provided.innerRef}
+                  >
 
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
 
           </div>
         </form>
