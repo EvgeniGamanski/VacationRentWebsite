@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import { categories, facilities, types } from '../data';
 import variables from "../styles/variables.scss";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-
+import { IoIosImages } from "react-icons/io";
 import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 
 const CreateListing = () => {
@@ -33,7 +33,7 @@ const CreateListing = () => {
     <>
       <Navbar />
 
-      <div className='create-listing'>
+      <div className="create-listing">
         <h1>Publish Your Place</h1>
         <form>
           <div className='create-listing_step1'>
@@ -154,7 +154,37 @@ const CreateListing = () => {
                 {(provided) => (
                   <div className='photos' {...provided.droppableProps} ref={provided.innerRef}
                   >
-                    {photos.map((photos, index))}
+                    { photos.length < 1 && (
+                      <>
+                          <input id="image" type='file' style={{ display: "none" }} accept='image/*' 
+                          onChange={handleUploadPhotos} 
+                          multiple
+                          />
+                          <label htmlFor='image' className='alone'>
+                            <div className='icon'><IoIosImages /></div>
+                            <p>Upload from your device</p>
+                          </label>
+                      </>
+                    )}
+
+                    {photos.length > 1 && (
+                      <>
+                        {photos.map((photo, index) => {
+                          return (
+                            <Draggable key={index} draggableId={index.toString()} index={index}>
+                              {(provided) => (
+                                <div className='photo' ref={provided.innerRef} {...provided.draggableProps} 
+                                {...provided.dragHandleProps}
+                                >
+                                  <img src={URL.createObjectURL(photo)} alt='place' />
+
+                                </div>
+                              )}
+                            </Draggable>
+                          )
+                        })}
+                      </>
+                    )}
                   </div>
                 )}
               </Droppable>
