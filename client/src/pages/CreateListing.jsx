@@ -17,10 +17,18 @@ const CreateListing = () => {
 
   const handleDragPhoto = (result) => {
     if(!result.destination) return
+
     const items = Array.from(photos)
-    const [reorderedItem] = item.splice(result.source.index, 1
-    item.splice(result.destination.index, 0, reorderedItem)
+    const [reorderedItem] = items.splice(result.source.index, 1)
+    items.splice(result.destination.index, 0, reorderedItem)
+
+    setPhotos(items)
   }
+
+  const handleRemovePhotos = (indexToRemove) => {
+    setPhotos((prevPhotos) => prevPhotos.filter((_,index) => index !== indexToRemove))
+  }
+
   return (
     <>
       <Navbar />
@@ -141,12 +149,12 @@ const CreateListing = () => {
             </div>
 
             <h3>Add some photos of your place</h3>
-            <DragDropContext onDragEnd={}>
+            <DragDropContext onDragEnd={handleDragPhoto}>
               <Droppable droppableId='photos' direction='horizontal'>
                 {(provided) => (
                   <div className='photos' {...provided.droppableProps} ref={provided.innerRef}
                   >
-
+                    {photos.map((photos, index))}
                   </div>
                 )}
               </Droppable>
