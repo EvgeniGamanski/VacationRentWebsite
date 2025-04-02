@@ -6,6 +6,7 @@ import variables from "../styles/variables.scss";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { IoIosImages } from "react-icons/io";
 import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
+import { BiTrash } from 'react-icons/bi';
 
 const CreateListing = () => {
   const [photos, setPhotos] = useState([])
@@ -167,7 +168,7 @@ const CreateListing = () => {
                       </>
                     )}
 
-                    {photos.length > 1 && (
+                    {photos.length >= 1 && (
                       <>
                         {photos.map((photo, index) => {
                           return (
@@ -177,12 +178,22 @@ const CreateListing = () => {
                                 {...provided.dragHandleProps}
                                 >
                                   <img src={URL.createObjectURL(photo)} alt='place' />
-
+                                    <button type='button' onClick={() => handleRemovePhotos(index)}>
+                                      <BiTrash />
+                                    </button>
                                 </div>
                               )}
                             </Draggable>
                           )
                         })}
+                        <input id="image" type='file' style={{ display: "none" }} accept='image/*' 
+                          onChange={handleUploadPhotos} 
+                          multiple
+                          />
+                          <label htmlFor='image' className='alone'>
+                            <div className='icon'><IoIosImages /></div>
+                            <p>Upload from your device</p>
+                          </label>
                       </>
                     )}
                   </div>
