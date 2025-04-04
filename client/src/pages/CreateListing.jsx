@@ -190,10 +190,10 @@ const CreateListing = () => {
                           onChange={handleUploadPhotos} 
                           multiple
                           />
-                          <label htmlFor='image' className='alone'>
+                          <label htmlFor='image' className='together'>
                             <div className='icon'><IoIosImages /></div>
                             <p>Upload from your device</p>
-                          </label>
+                          </label>  
                       </>
                     )}
                   </div>
