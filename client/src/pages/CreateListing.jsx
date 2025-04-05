@@ -201,6 +201,17 @@ const CreateListing = () => {
               </Droppable>
             </DragDropContext>
 
+            <h3>What makes your place attractive and exciting?</h3>
+            <div className='description'>
+              <p>Title</p>
+              <input type='text' placeholder='Title' name='title' required />
+              <p>Description</p>
+              <textarea type='text' placeholder='Description' name='description' required />
+              <p>Highlight</p>
+              <input type='text' placeholder='Highlight' name='highlight' required />
+              <p>Highlight details</p>
+              <textarea type='text' placeholder='Highlight details' name='highlightDesc' required />
+            </div>
           </div>
         </form>
       </div>
