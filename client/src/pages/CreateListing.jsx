@@ -211,6 +211,11 @@ const CreateListing = () => {
               <input type='text' placeholder='Highlight' name='highlight' required />
               <p>Highlight details</p>
               <textarea type='text' placeholder='Highlight details' name='highlightDesc' required />
+              <p>Now, set your PRICE</p>
+              <span>$</span>
+              <input type="number" placeholder='100' name='price' 
+              className='price' required
+              />
             </div>
           </div>
         </form>
