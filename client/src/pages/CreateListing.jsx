@@ -9,6 +9,11 @@ import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 import { BiTrash } from 'react-icons/bi';
 
 const CreateListing = () => {
+  const [category, setCategory] = useState("");
+  const [type, setType] = useState("")
+  const [amenities, setAmenities] = useState([])
+
+
   const [photos, setPhotos] = useState([])
 
   const handleUploadPhotos = (e) => {
@@ -43,7 +48,7 @@ const CreateListing = () => {
             <h3>Which of these categories best describes your place?</h3>
             <div className='category-list'>
               {categories.map((item, index) => {
-                <div className='category' key={index}>
+                <div className='category' key={index} onClick={() => setCategory(item.label)}>
                   <div className='category_icon'>{item.icon}</div>
                   <p>{item.label}</p>
                 </div>
