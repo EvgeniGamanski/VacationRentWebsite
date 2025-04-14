@@ -48,7 +48,7 @@ const CreateListing = () => {
             <h3>Which of these categories best describes your place?</h3>
             <div className='category-list'>
               {categories.map((item, index) => {
-                <div className='category' key={index} onClick={() => setCategory(item.label)}>
+                <div className={`category ${category === item.label ? "selected" : "" }`} key={index} onClick={() => setCategory(item.label)}>
                   <div className='category_icon'>{item.icon}</div>
                   <p>{item.label}</p>
                 </div>
@@ -58,7 +58,7 @@ const CreateListing = () => {
             <h3>What type of place will guests have?</h3>
             <div className='type-list'>
               {types?.map((item, index) => (
-                <div className='type' key={index}>
+                <div className='type' key={index} onClick={() => setType(item.name)}>
                   <div className='type_text'>
                     <h4>{item.name}</h4>
                     <p>{item.description}</p>
