@@ -13,7 +13,22 @@ const CreateListing = () => {
   const [type, setType] = useState("")
   const [amenities, setAmenities] = useState([])
 
+  const [formLocation, setFormLocation] = useState({
+    streetAddress: "",
+    aptSuite: "",
+    city: "",
+    province: "",
+    country: ""
+  })
 
+  const handleChangeLocation = (e) => {
+    const { name, value } = e.target
+    setFormLocation({
+      ...formLocation,
+      [name]: value
+    })
+  }
+ 
   const [photos, setPhotos] = useState([])
 
   const handleUploadPhotos = (e) => {
@@ -58,7 +73,9 @@ const CreateListing = () => {
             <h3>What type of place will guests have?</h3>
             <div className='type-list'>
               {types?.map((item, index) => (
-                <div className='type' key={index} onClick={() => setType(item.name)}>
+                <div 
+                className={`type ${type === item.name ? "selected" : ""}`} 
+                key={index} onClick={() => setType(item.name)}>
                   <div className='type_text'>
                     <h4>{item.name}</h4>
                     <p>{item.description}</p>
@@ -72,31 +89,40 @@ const CreateListing = () => {
             <div className='full'>
               <div className='location'>
                 <p>Street Address</p>
-                <input type="text" placeholder='Street Address' name='streetAddress' required />
+                <input type="text" placeholder='Street Address' name='streetAddress' 
+                value={formLocation.streetAddress}
+                required 
+                />
               </div>
             </div>
 
             <div className='half'> 
               <div className='location'>
                 <p>Apartment, Suite, etc. (if applicable)</p>
-                <input type='text' placeholder='Apt, Suite, etc. (if applicable)' name='aptSuite' required />
+                <input type='text' placeholder='Apt, Suite, etc. (if applicable)' name='aptSuite' required 
+                value={formLocation.aptSuite}
+                />
               </div>
 
               <div className='location'>
                 <p>City</p>
-                <input type='text' placeholder='City' name='city' required />
+                <input type='text' placeholder='City' name='city' value={formLocation.city} required />
               </div>
             </div>
 
             <div className='half'> 
               <div className='location'>
                 <p>Province</p>
-                <input type='text' placeholder='Province' name='province' required />
+                <input type='text' placeholder='Province' name='province'
+                value={formLocation.province}
+                required />
               </div>
 
               <div className='location'>
                 <p>Country</p>
-                <input type='text' placeholder='Country' name='country' required />
+                <input type='text' placeholder='Country' name='country'
+                value={formLocation.country}
+                 required />
               </div>
             </div>
 
