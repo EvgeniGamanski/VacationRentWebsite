@@ -25,9 +25,14 @@ const CreateListing = () => {
     const { name, value } = e.target
     setFormLocation({
       ...formLocation,
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
+  
+  const [guestCount, setGuestCount] = useState(1)
+  const [bedroomCount, setBedroomCount] = useState(1)
+  const [bedCount, setBedCount] = useState(1)
+  const [bathroomCount, setBathroomCount] = useState(1)
  
   const [photos, setPhotos] = useState([])
 
@@ -91,6 +96,7 @@ const CreateListing = () => {
                 <p>Street Address</p>
                 <input type="text" placeholder='Street Address' name='streetAddress' 
                 value={formLocation.streetAddress}
+                onChange={handleChangeLocation}
                 required 
                 />
               </div>
@@ -101,12 +107,15 @@ const CreateListing = () => {
                 <p>Apartment, Suite, etc. (if applicable)</p>
                 <input type='text' placeholder='Apt, Suite, etc. (if applicable)' name='aptSuite' required 
                 value={formLocation.aptSuite}
+                onChange={handleChangeLocation}
                 />
               </div>
 
               <div className='location'>
                 <p>City</p>
-                <input type='text' placeholder='City' name='city' value={formLocation.city} required />
+                <input type='text' placeholder='City' name='city' value={formLocation.city}
+                onChange={handleChangeLocation}
+                 required />
               </div>
             </div>
 
@@ -115,6 +124,7 @@ const CreateListing = () => {
                 <p>Province</p>
                 <input type='text' placeholder='Province' name='province'
                 value={formLocation.province}
+                onChange={handleChangeLocation}
                 required />
               </div>
 
@@ -122,6 +132,7 @@ const CreateListing = () => {
                 <p>Country</p>
                 <input type='text' placeholder='Country' name='country'
                 value={formLocation.country}
+                onChange={handleChangeLocation}
                  required />
               </div>
             </div>
