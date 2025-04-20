@@ -151,16 +151,22 @@ const CreateListing = () => {
               <div className='basic'>
                 <p>Bedrooms</p>
                 <div className='basic_count'>
-                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <RemoveCircleOutline
+                  onClick={() => {guestCount > 1 && setGuestCount(guestCount - 1)}}
+                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
-                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <AddCircleOutline
+                  onClick={() => {setGuestCount(guestCount + 1)}}
+                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
 
               <div className='basic'>
                 <p>Beds</p>
                 <div className='basic_count'>
-                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <RemoveCircleOutline 
+                  onClick={() => {bedCount > 1 && set(bedCount - 1)}}
+                  sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
                   <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
@@ -169,7 +175,9 @@ const CreateListing = () => {
               <div className='basic'>
                 <p>Bathrooms</p>
                 <div className='basic_count'>
-                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <RemoveCircleOutline
+                  onClick={() => {bathroomCount > 1 && setBathroomCount(bathroomCount - 1)}}
+                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
                   <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
