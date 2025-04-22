@@ -142,9 +142,13 @@ const CreateListing = () => {
               <div className='basic'>
                 <p>Guests</p>
                 <div className='basic_count'>
-                  <RemoveCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <RemoveCircleOutline 
+                  onClick={() => {guestCount > 1 && setGuestCount(guestCount - 1)}}
+                  sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
-                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <AddCircleOutline
+                  onClick={() => {setGuestCount(guestCount + 1)}} 
+                  sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
 
@@ -152,11 +156,11 @@ const CreateListing = () => {
                 <p>Bedrooms</p>
                 <div className='basic_count'>
                   <RemoveCircleOutline
-                  onClick={() => {guestCount > 1 && setGuestCount(guestCount - 1)}}
+                  onClick={() => {bedroomCount > 1 && setBedroomCount(bedroomCount - 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
                   <AddCircleOutline
-                  onClick={() => {setGuestCount(guestCount + 1)}}
+                  onClick={() => {setBedroomCount(bedroomCount + 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
@@ -168,7 +172,9 @@ const CreateListing = () => {
                   onClick={() => {bedCount > 1 && set(bedCount - 1)}}
                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>1</p>
-                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <AddCircleOutline
+                  onClick={() => {setBedCount(bedCount + 1)}}
+                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
 
