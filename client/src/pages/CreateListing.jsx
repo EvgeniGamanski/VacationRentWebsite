@@ -11,7 +11,6 @@ import { BiTrash } from 'react-icons/bi';
 const CreateListing = () => {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("")
-  const [amenities, setAmenities] = useState([])
 
   const [formLocation, setFormLocation] = useState({
     streetAddress: "",
@@ -33,6 +32,8 @@ const CreateListing = () => {
   const [bedroomCount, setBedroomCount] = useState(1)
   const [bedCount, setBedCount] = useState(1)
   const [bathroomCount, setBathroomCount] = useState(1)
+
+  
  
   const [photos, setPhotos] = useState([])
 
@@ -145,7 +146,7 @@ const CreateListing = () => {
                   <RemoveCircleOutline 
                   onClick={() => {guestCount > 1 && setGuestCount(guestCount - 1)}}
                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
-                  <p>1</p>
+                  <p>{guestCount}</p>
                   <AddCircleOutline
                   onClick={() => {setGuestCount(guestCount + 1)}} 
                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
@@ -158,7 +159,7 @@ const CreateListing = () => {
                   <RemoveCircleOutline
                   onClick={() => {bedroomCount > 1 && setBedroomCount(bedroomCount - 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
-                  <p>1</p>
+                  <p>{bedroomCount}</p>
                   <AddCircleOutline
                   onClick={() => {setBedroomCount(bedroomCount + 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
@@ -171,7 +172,7 @@ const CreateListing = () => {
                   <RemoveCircleOutline 
                   onClick={() => {bedCount > 1 && set(bedCount - 1)}}
                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
-                  <p>1</p>
+                  <p>{bedCount}</p>
                   <AddCircleOutline
                   onClick={() => {setBedCount(bedCount + 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
@@ -184,8 +185,10 @@ const CreateListing = () => {
                   <RemoveCircleOutline
                   onClick={() => {bathroomCount > 1 && setBathroomCount(bathroomCount - 1)}}
                    sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
-                  <p>1</p>
-                  <AddCircleOutline sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
+                  <p>{bathroomCount}</p>
+                  <AddCircleOutline 
+                  onClick ={() => {setBathroomCount(bathroomCount + 1)}}
+                  sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                 </div>
               </div>
             </div>
