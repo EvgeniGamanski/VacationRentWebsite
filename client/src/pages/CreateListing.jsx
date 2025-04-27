@@ -33,7 +33,15 @@ const CreateListing = () => {
   const [bedCount, setBedCount] = useState(1)
   const [bathroomCount, setBathroomCount] = useState(1)
 
-  
+  const [amenities, setAmenities] = useState([]);
+
+  const handleSelectAmenities = (facility) => {
+    if (amenities.includes(facility)) {
+      setAmenities((prevAmenities) => prevAmenities.filter((option) => option !== facility))
+    } else {
+      setAmenities((prev) => [...prev, facility])
+    }
+  }
  
   const [photos, setPhotos] = useState([])
 
@@ -201,7 +209,7 @@ const CreateListing = () => {
             <h3>Tell guests what your place has to offer</h3>
             <div className='amenities'>
               {facilities?.map((item, index) => (
-                <div className='facility' key={index}>
+                <div className={`facility ${amenities.includes(item) ? "selected" : "" }`} key={index} onClick={() => handleSelectAmenities(item)}>
                   <div className='facility_icon'>{item.icon}</div>
                   <p>{item.name}</p>
                 </div>
