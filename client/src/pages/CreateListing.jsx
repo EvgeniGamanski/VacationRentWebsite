@@ -42,6 +42,8 @@ const CreateListing = () => {
       setAmenities((prev) => [...prev, facility])
     }
   }
+
+  console.log(amenities)
  
   const [photos, setPhotos] = useState([])
 
@@ -178,7 +180,7 @@ const CreateListing = () => {
                 <p>Beds</p>
                 <div className='basic_count'>
                   <RemoveCircleOutline 
-                  onClick={() => {bedCount > 1 && set(bedCount - 1)}}
+                  onClick={() => {bedCount > 1 && setBedCount(bedCount - 1)}}
                   sx={{ fontSize: "25px", cursor: "pointer", "&:hover":{ color: variables.pinkred } }} />
                   <p>{bedCount}</p>
                   <AddCircleOutline
