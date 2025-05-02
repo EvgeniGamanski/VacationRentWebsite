@@ -42,8 +42,6 @@ const CreateListing = () => {
       setAmenities((prev) => [...prev, facility])
     }
   }
-
-  console.log(amenities)
  
   const [photos, setPhotos] = useState([])
 
@@ -63,7 +61,25 @@ const CreateListing = () => {
   }
 
   const handleRemovePhotos = (indexToRemove) => {
-    setPhotos((prevPhotos) => prevPhotos.filter((_,index) => index !== indexToRemove))
+    setPhotos((prevPhotos) => 
+      prevPhotos.filter((_,index) => index !== indexToRemove)
+   );
+  };
+
+  const [formDescription, setFormDescription] = useState({
+    title: "",
+    description: "",
+    highlight: "",
+    highlightDesc: "",
+    price: 0
+  })
+
+  const handleChangeDescription = (e) => {
+    const { name, value } = e.target
+    setFormDescription({
+      ...formDescription,
+      [name]: value
+    })
   }
 
   return (
