@@ -289,16 +289,16 @@ const CreateListing = () => {
             <h3>What makes your place attractive and exciting?</h3>
             <div className='description'>
               <p>Title</p>
-              <input type='text' placeholder='Title' name='title' required />
+              <input type='text' placeholder='Title' name='title' value={formDescription.title} onChange={handleChangeDescription} required />
               <p>Description</p>
-              <textarea type='text' placeholder='Description' name='description' required />
+              <textarea type='text' placeholder='Description' name='description' value={formDescription.description} onChange={handleChangeDescription} required />
               <p>Highlight</p>
-              <input type='text' placeholder='Highlight' name='highlight' required />
+              <input type='text' placeholder='Highlight' name='highlight' value={formDescription.highlight} onChange={handleChangeDescription} required />
               <p>Highlight details</p>
-              <textarea type='text' placeholder='Highlight details' name='highlightDesc' required />
+              <textarea type='text' placeholder='Highlight details' name='highlightDesc' value={formDescription.highlightDesc} onChange={handleChangeDescription} required />
               <p>Now, set your PRICE</p>
               <span>$</span>
-              <input type="number" placeholder='100' name='price' 
+              <input type="number" placeholder='100' name='price' value={formDescription.price} onChange={handleChangeDescription}
               className='price' required
               />
             </div>
