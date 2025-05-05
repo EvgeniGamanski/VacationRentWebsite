@@ -82,6 +82,8 @@ const CreateListing = () => {
     })
   }
 
+  console.log(formDescription)
+
   return (
     <>
       <Navbar />
