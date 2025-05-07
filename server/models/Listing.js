@@ -37,6 +37,27 @@ const ListingSchema = new mongoose.Schema(
         guestCount: {
             type: Number,
             required: true
+        },
+        bedroomCount: {
+            type: Number,
+            required: true
+        },
+        bedCount: {
+            type: Number,
+            required: true
+        },
+        bathroomCount: {
+            type: Number,
+            required: true
+        },
+        amenities: {
+            type: Array,
+            default:[{}]
+        },
+        listingPhotoPaths: [{ type: String }], // Store the URL of the photos
+        title: {
+            type: String,
+            required: true
         }
     }
 )
