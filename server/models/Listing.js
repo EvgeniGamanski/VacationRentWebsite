@@ -2,9 +2,9 @@ const mongoose = require("mongoose")
 
 const ListingSchema = new mongoose.Schema(
     {
-        userId: {
-            type: String,
-            required: true, 
+        creator: {
+            type: Schema.Types.ObjectId,
+            ref: 'User', 
         },
         category: {
             type: String,
