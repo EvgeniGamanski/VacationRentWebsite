@@ -13,6 +13,7 @@ app.use(express.static('public'));
 
 /* ROUTES */
 app.use("/auth", authRouters)
+app.use("/properties", listingRoutes)
 
 /* MONGOOSE SETUP FOR PORT */
 const PORT = 3001;

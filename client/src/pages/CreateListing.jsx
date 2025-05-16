@@ -7,6 +7,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { IoIosImages } from "react-icons/io";
 import { RemoveCircleOutline, AddCircleOutline } from '@mui/icons-material';
 import { BiTrash } from 'react-icons/bi';
+import { useSelector } from 'react-redux';
 
 const CreateListing = () => {
   const [category, setCategory] = useState("");
@@ -82,8 +83,13 @@ const CreateListing = () => {
     })
   }
 
-  console.log(formDescription)
+  const creatorId = useSelector((state) => state.user._id)
 
+  const handlePost = async (e) => {
+    e.preventDefault()
+
+
+  }
   return (
     <>
       <Navbar />
@@ -305,6 +311,8 @@ const CreateListing = () => {
               />
             </div>
           </div>
+
+          <button className='submit_btn' type='submit'>CREATE YOUR LISTING</button>
         </form>
       </div>
     </>
