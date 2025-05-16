@@ -88,7 +88,7 @@ const CreateListing = () => {
   const handlePost = async (e) => {
     e.preventDefault()
 
-
+    
   }
   return (
     <>
