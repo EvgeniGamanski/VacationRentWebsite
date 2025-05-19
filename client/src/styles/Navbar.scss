@@ -13,7 +13,7 @@
   }
 
   img {
-    width: 100px;
+    width: 120px;
     cursor: pointer;
   }
 
@@ -22,12 +22,12 @@
   }
 
   &_search {
-    border: 1px solid $grey;
+    border: 2px solid $grey;
     border-radius: 30px;
-    height: 50px;
+    height: 60px;
     padding: 0px 20px;
     display: flex;
-    gap: 40px;
+    gap: 35px;
     align-items: center;
 
     input {
