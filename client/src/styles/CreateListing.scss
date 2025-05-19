@@ -16,8 +16,8 @@
 
   &_step1 {
     background-color: white;
-    padding: 30px 40px;
-    border-radius: 20px;
+    padding: 25px 40px;
+    border-radius: 30px;
     margin-top: 40px;
 
     @include sm {
@@ -33,7 +33,7 @@
     }
 
     h3 {
-      margin: 40px 0 20px;
+      margin: 50px 0 25px;
       color: $blue;
     }
 
