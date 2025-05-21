@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "../styles/CreateListing.scss";
 import Navbar from '../components/Navbar';
 import { categories, facilities, types } from '../data';
@@ -20,7 +20,7 @@ const CreateListing = () => {
     city: "",
     province: "",
     country: ""
-  })
+  });
 
   const handleChangeLocation = (e) => {
     const { name, value } = e.target
@@ -30,10 +30,10 @@ const CreateListing = () => {
     });
   };
   
-  const [guestCount, setGuestCount] = useState(1)
-  const [bedroomCount, setBedroomCount] = useState(1)
-  const [bedCount, setBedCount] = useState(1)
-  const [bathroomCount, setBathroomCount] = useState(1)
+  const [guestCount, setGuestCount] = useState(1);
+  const [bedroomCount, setBedroomCount] = useState(1);
+  const [bedCount, setBedCount] = useState(1);
+  const [bathroomCount, setBathroomCount] = useState(1);
 
   const [amenities, setAmenities] = useState([]);
 
@@ -43,23 +43,23 @@ const CreateListing = () => {
     } else {
       setAmenities((prev) => [...prev, facility])
     }
-  }
+  };
  
-  const [photos, setPhotos] = useState([])
+  const [photos, setPhotos] = useState([]);
 
   const handleUploadPhotos = (e) => {
-    const newPhotos = e.target.files
-    setPhotos((prevPhotos) => [...prevPhotos, ...newPhotos])
-  }
+    const newPhotos = e.target.files;
+    setPhotos((prevPhotos) => [...prevPhotos, ...newPhotos]);
+  };
 
   const handleDragPhoto = (result) => {
-    if(!result.destination) return
+    if(!result.destination) return;
 
-    const items = Array.from(photos)
-    const [reorderedItem] = items.splice(result.source.index, 1)
-    items.splice(result.destination.index, 0, reorderedItem)
+    const items = Array.from(photos);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
 
-    setPhotos(items)
+    setPhotos(items);
   }
 
   const handleRemovePhotos = (indexToRemove) => {
@@ -73,63 +73,64 @@ const CreateListing = () => {
     description: "",
     highlight: "",
     highlightDesc: "",
-    price: 0
-  })
+    price: 0,
+  });
 
   const handleChangeDescription = (e) => {
     const { name, value } = e.target
     setFormDescription({
       ...formDescription,
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
-  const creatorId = useSelector((state) => state.user._id)
+  const creatorId = useSelector((state) => state.user._id);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handlePost = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
 
-      const listingForm = new FormData()
-      listingForm.append("creator", creatorId)
-      listingForm.append("category", category)
-      listingForm.append("type", type)
-      listingForm.append("streetAddress", formLocation.streetAddress)
-      listingForm.append("aptSuite", formLocation.aptSuite)
-      listingForm.append("city", formLocation.city)
-      listingForm.append("province", formLocation.province)
-      listingForm.append("country", formLocation.country)
-      listingForm.append("guestCount", guestCount)
-      listingForm.append("bedroomCount", bedroomCount)
-      listingForm.append("bedCount", bedCount)
-      listingForm.append("bathroomCount", bathroomCount)
-      listingForm.append("amenities", amenities)
-      listingForm.append("description", formDescription.description)
-      listingForm.append("highlight", formDescription.highlight)
-      listingForm.append("highlightDesc", formDescription.highlightDesc)
-      listingForm.append("price", formDescription.price)
+      const listingForm = new FormData();
+      listingForm.append("creator", creatorId);
+      listingForm.append("category", category);
+      listingForm.append("type", type);
+      listingForm.append("streetAddress", formLocation.streetAddress);
+      listingForm.append("aptSuite", formLocation.aptSuite);
+      listingForm.append("city", formLocation.city);
+      listingForm.append("province", formLocation.province);
+      listingForm.append("country", formLocation.country);
+      listingForm.append("guestCount", guestCount);
+      listingForm.append("bedroomCount", bedroomCount);
+      listingForm.append("bedCount", bedCount);
+      listingForm.append("bathroomCount", bathroomCount);
+      listingForm.append("amenities", amenities);
+      listingForm.append("title", formDescription.title);
+      listingForm.append("description", formDescription.description);
+      listingForm.append("highlight", formDescription.highlight);
+      listingForm.append("highlightDesc", formDescription.highlightDesc);
+      listingForm.append("price", formDescription.price);
 
       photos.forEach((photo) => {
-        listingForm.append("listingPhotos", photo)
-      })
+        listingForm.append("listingPhotos", photo);
+      });
 
       const response = await fetch("http://localhost:3001/properties/create", {
         method: "POST",
-        body: listingForm
-      })
+        body: listingForm,
+      });
 
       if(response.ok){
-        navigate("/")      
+        navigate("/");
       }
 
     } catch (err) {
       console.log("Publishing listing failded!", err.message)
     }
 
-  }
+  };
   return (
     <>
       <Navbar />
@@ -142,12 +143,12 @@ const CreateListing = () => {
             <hr />
             <h3>Which of these categories best describes your place?</h3>
             <div className='category-list'>
-              {categories.map((item, index) => {
+              {categories?.map((item, index) => (
                 <div className={`category ${category === item.label ? "selected" : "" }`} key={index} onClick={() => setCategory(item.label)}>
                   <div className='category_icon'>{item.icon}</div>
                   <p>{item.label}</p>
                 </div>
-              })}
+              ))}
             </div>
 
             <h3>What type of place will guests have?</h3>
