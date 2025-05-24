@@ -9,19 +9,30 @@ const Listings = () => {
   const dispatch = useDispatch()
   const [loading, setLoading ] = useState(true)
 
-  const [selectedCategory, setSelectedCategory] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("All")
  
   const listings = useSelector((state) => state.listings)
 
   const getFeedListings = async () => {
     try {
-        const response = await fetch("http://localhost:3001/")
+        const response = await fetch(
+            selectedCategory !== "All" ? 
+            `http://localhost:3001/properties?category=${selectedCategory}` 
+            : "http://localhost:3001/properties",
+            {
+            method: "GET",
+            }
+    );
+
+    const data = await response.json()
+    dispatch(setListings)
+
     } catch (err) {}
   }
   return (
     <div className='category-list'>
         {categories?.map((category, index) => (
-            <div className={`category`} key={index}>
+            <div className={`category`} key={index} onClick={() => setSelectedCategory(category.label)}>
                 <div className="category_icon">{category.icon}</div>
                 <p>{category.label}</p>
             </div>
