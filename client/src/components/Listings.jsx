@@ -3,7 +3,9 @@ import { categories } from "../data";
 import "../styles/Listings.scss";
 import ListingCard from "./ListingCard";
 import Loader from "./Loader"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { setListings } from "../redux/state";
+import { useSelector } from "react-redux";
 
 const Listings = () => {
   const dispatch = useDispatch()
@@ -25,11 +27,21 @@ const Listings = () => {
     );
 
     const data = await response.json()
-    dispatch(setListings)
+    dispatch(setListings({ listings: data }))
+    setLoading(false)
+    } catch (err) {
+        console.log("Failed to fetch listings.", err.message)
+    }
+  };
 
-    } catch (err) {}
-  }
+  useEffect(() => {
+    getFeedListings()
+  }, [selectedCategory])
+  
+  console.log(listings)
+
   return (
+    <>
     <div className='category-list'>
         {categories?.map((category, index) => (
             <div className={`category`} key={index} onClick={() => setSelectedCategory(category.label)}>
@@ -38,7 +50,14 @@ const Listings = () => {
             </div>
         ))}
     </div>
-  )
-}
+
+        {loading ? <Loader /> : (
+            <div className="listings">
+                {listings.map((listing) => (<ListingCard />))}
+            </div> 
+        )}
+    </>
+  );
+};
 
 export default Listings

@@ -1,8 +1,14 @@
-import React from 'react'
-
+import "../styles/ListingCard.scss"
+ 
 const ListingCard = () => {
   return (
-    <div>ListingCard</div>
+    <div className="listing-card">
+        <div className="slider-container">
+            <div className="slider">
+                
+            </div>
+        </div>
+    </div>
   )
 }
 
