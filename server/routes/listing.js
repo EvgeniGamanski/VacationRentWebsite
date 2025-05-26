@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb){
         cb(null, "public/uploads/"); 
     },
-    filename: function ( req,file,cb ){
+    filename: function ( req, file, cb ){
         cb(null, file.originalname);
     },
 });
@@ -100,10 +100,10 @@ router.get("/", async (req, res) => {
 router.get("/:listingId", async (req, res) => {
     try{
         const { listingId } = req.params
-        const listing = await Listing.findById(listingId)
+        const listing = await Listing.findById(listingId).populate("creator")
         res.status(202).json(listing)
     } catch (err) {
-        res.status(400).json({ message: "Listing can't be found", error: err.message })
+        res.status(404).json({ message: "Listing can't be found", error: err.message })
     }
 })
 

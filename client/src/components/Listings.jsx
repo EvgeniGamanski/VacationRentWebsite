@@ -8,12 +8,12 @@ import { setListings } from "../redux/state";
 import { useSelector } from "react-redux";
 
 const Listings = () => {
-  const dispatch = useDispatch()
-  const [loading, setLoading ] = useState(true)
+  const dispatch = useDispatch();
+  const [loading, setLoading ] = useState(true);
 
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [selectedCategory, setSelectedCategory] = useState("All");
  
-  const listings = useSelector((state) => state.listings)
+  const listings = useSelector((state) => state.listings);
 
   const getFeedListings = async () => {
     try {
@@ -26,9 +26,9 @@ const Listings = () => {
             }
     );
 
-    const data = await response.json()
-    dispatch(setListings({ listings: data }))
-    setLoading(false)
+    const data = await response.json();
+    dispatch(setListings({ listings: data }));
+    setLoading(false);
     } catch (err) {
         console.log("Failed to fetch listings.", err.message)
     }
