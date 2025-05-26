@@ -53,7 +53,7 @@ const ListingDetails = () => {
   const end = new Date(dateRange[0].endDate)
   const dayCount = Math.round(end-start) / (1000 * 60 * 60 * 24)
 
-  return loading ? <Loader /> : (
+  return loading ? ( <Loader /> ) : (
     <>
     <div className='listing-details'>
       <div className="title">
@@ -63,7 +63,7 @@ const ListingDetails = () => {
 
       <div className="photos">
         {listing.listingPhotoPaths?.map((item) => {
-          <img src={`http:localhost:3001/${item.replace("public", "")}`} alt="listing photo"/>
+          <img src={`http://localhost:3001/${item.replace("public", "")}`} alt="listing photo"/>
         })}
       </div>
 
@@ -77,7 +77,7 @@ const ListingDetails = () => {
       <hr />
 
       <div className="profile">
-        <img src={`http:localhost:3001/${listing.creator.profileImgPath.replace("public", "")}`}/>
+        <img src={`http://localhost:3001/${listing.creator.profileImagePath.replace("public", "")}`}/>
         <h3>Hosted by {listing.creator.firstName} {listing.creator.lastName}</h3>
       </div>
       <hr />
@@ -94,12 +94,12 @@ const ListingDetails = () => {
         <div>
           <h2>What this place offers?</h2>
           <div className="amenitites">
-            {JSON.parse(listing.amenities).map((item, index) => {
+            {listing.amenities[0].split(",").map((item, index) => {
               <div className="facility" key={index}>
                 <div className="facility_icon">
                 {facilities.find((facility) => facility.name === item.name)?.icon}
                 </div>
-                <p>item</p>
+                <p>{item}</p>
               </div>
             })}
           </div>
