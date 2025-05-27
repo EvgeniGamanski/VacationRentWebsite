@@ -15,7 +15,11 @@ const ListingCard = ({
     country, 
     category,
     type, 
-    price
+    price,
+    startDate,
+    endDate,
+    totalPrice,
+    booking
   }) => {
 
   const [currentIndex, setCurrentIndex ] = useState(0);
@@ -74,8 +78,22 @@ const ListingCard = ({
 
         <h3>{city}, {province}, {country}</h3>
         <p>{category}</p>
-        <p>{type}</p>
-        <p><span>${price}</span> per night</p> 
+
+        {!booking? (<>
+             <p>{type}</p>
+             <p>
+                <span>${price}</span> per night
+             </p> 
+           </>
+        ) : (
+          <>
+             <p>{startDate} - {endDate}</p>
+             <p>
+                <span>${totalPrice}</span> total
+             </p> 
+          </>
+        )}
+       
     </div>
   );
 };

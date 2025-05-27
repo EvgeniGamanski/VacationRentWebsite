@@ -58,10 +58,10 @@ const ListingDetails = () => {
   const end = new Date(dateRange[0].endDate);
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
-  /* SUBMIT BOOKING */
+  // submit booking
   const customerId = useSelector((state) => state?.user?._id)
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
 
   const handleSubmit = async () => {
     try {
