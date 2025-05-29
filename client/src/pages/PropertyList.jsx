@@ -2,8 +2,9 @@ import "../styles/List.scss"
 import { useDispatch, useSelector } from "react-redux"
 import NavBar from "../components/Navbar"
 import ListingCard from "../components/ListingCard"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { setPropertyList } from "../redux/state"
+import Loader from "../components/Loader"
 
 const PropertyList = () => {
   const [loading, setLoading] = useState(true)
@@ -24,11 +25,11 @@ const PropertyList = () => {
     }
   }
 
-  userEffect(() => {
+  useEffect(() => {
     getPropertyList()
   }, [])
 
-  return (
+  return loading ? <Loader /> :  (
     <>
     <NavBar />
     <h1 className="title-list">Your Property List</h1>
