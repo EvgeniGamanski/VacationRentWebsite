@@ -4,15 +4,20 @@ import {useSelector, useDispatch} from "react-redux";
 import variables from "../styles/variables.scss";
 import React, { useState } from "react";
 import "../styles/Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setLogout } from "../redux/state";
+
 
 const Navbar = () => {
   const [dropDownMenu, setDropDownMenu] = useState(false)
   
   const user = useSelector((state) => state.user)
   
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const [search, setSearch] = useState("")
+
+  const navigate = useNavigate()
   
   return (
     <div className='navbar'>
@@ -21,9 +26,17 @@ const Navbar = () => {
       </a>
 
       <div className='navbar_search'>
-        <input type="text" placeholder='Search ...' />
-        <IconButton>
-          <Search sx={{ color: variables.pinkred }} />
+        <input 
+          type="text" 
+          placeholder='Search ...' 
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <IconButton disabled={search === ""}>
+          <Search 
+            sx={{ color: variables.pinkred }} 
+            onClick={() => {navigate(`/properties/search/${search}`)}}
+            />
         </IconButton>
       </div>
 
