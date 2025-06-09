@@ -33,13 +33,19 @@ const LoginPage = () => {
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token
-          })
+          })          
         )
+        
+        if(!(setLogin.user)) {  
+          return
+        }
+
         navigate("/")
       }
 
     } catch (err) {
       console.log("Login failed", err.message)
+      navigate("/login")
     }
   }
 
