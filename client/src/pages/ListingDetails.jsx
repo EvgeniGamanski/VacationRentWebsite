@@ -179,7 +179,7 @@ const ListingDetails = () => {
               <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
               <p>End Date: {dateRange[0].endDate.toDateString()}</p>
 
-              <button className="button" type="submit" onClick={handleSubmit}>
+              <button className="button" type="submit" disabled={!customerId} onClick={handleSubmit}>
                 BOOKING
               </button>
             </div>

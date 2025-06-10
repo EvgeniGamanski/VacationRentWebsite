@@ -33,7 +33,7 @@ const ReservationList = () => {
     getReservationList()
   }, [])
 
-  return loading ? <Loader /> : (
+  return loading ? ( <Loader /> ) : (
     <>
         <Navbar />
         <h1 className="title-list">Your Reservation List</h1>

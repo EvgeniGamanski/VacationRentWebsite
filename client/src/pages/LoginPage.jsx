@@ -35,10 +35,6 @@ const LoginPage = () => {
             token: loggedIn.token
           })          
         )
-        
-        if(!(setLogin.user)) {  
-          return
-        }
 
         navigate("/")
       }
