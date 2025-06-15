@@ -14,3 +14,8 @@ The logged in user can:
 - Create a listing ( Update their property list )
 - Create a booking for themselves ( including the total price and the booking's start date and end date )
 
+
+Here is what the project's interface looks like:
+
+![image](VacationRentWebsiteScreenshots/pic1.png)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
